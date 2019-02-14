@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SignInService } from './auth/sign-in.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
+  constructor(public auth: SignInService){}
   title = 'Movies';
 }
