@@ -1,54 +1,47 @@
-<div class="container">
+<mat-card class="container">
 
   <div *ngIf="movie">
-    <div>
-      <div>
-        <div>
 
-          <div>
-            <div class='movieCard'>
-              <div>
-                <img class='image' src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" 
-                alt="{{ movie.title }}">
-              </div>
-              <div class='movieInfo'>
-              <div class='movieTitle'>
-                  {{ movie.title }}
-              </div>
-                <ul>
-                  <li>
-                    <strong>Release Date: </strong> {{ movie.release_date | date:'dd-MM-yyyy' }}
-                  </li>
-                  <li >
-                    <strong>Tagline: </strong> {{ movie.tagline }}
-                  </li>
-                  <li>
-                    <strong>Summary: </strong> {{ movie.overview }}
-                  </li>
-                  <li>
-                      <strong>Budget: </strong> {{ movie.budget }}
-                    </li>
-                  <li>
-                    <strong>Genre: </strong>
-                    <span *ngFor="let genre of movie.genres">
-                      {{ genre.name }}
-                    </span>
-                  </li>
-                  <li>
-                    <a href="{{ movie.homepage }}" target="_blank">
-                      Movie Homepage
-                    </a>
-                    <a href="https://www.imdb.com/title/{{ movie.imdb_id }}" target="_blank">
-                      IMDB Link
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class='movieCard'>
+      <div>
+        <img class='image' src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" 
+        alt="{{ movie.title }}">
       </div>
+      <div class='movieInfo'>
+        <mat-card-title class='movieTitle'>
+            {{ movie.title }}
+        </mat-card-title>
+          <ul>
+            <li>
+              <strong>Release Date: </strong> {{ movie.release_date | date:'dd-MM-yyyy' }}
+            </li>
+            <li >
+              <strong>Tagline: </strong> {{ movie.tagline }}
+            </li>
+            <li>
+              <strong>Summary: </strong> {{ movie.overview }}
+            </li>
+            <li>
+              <strong>Budget: </strong> {{ movie.budget }}
+              </li>
+            <li>
+              <strong>Genre: </strong>
+              <span *ngFor="let genre of movie.genres">
+                {{ genre.name }}
+              </span>
+            </li>
+            <li>
+              <a href="{{ movie.homepage }}" target="_blank">
+                Movie Homepage
+              </a>
+              <a href="https://www.imdb.com/title/{{ movie.imdb_id }}" target="_blank">
+                IMDB Link
+              </a>
+            </li>
+          </ul>
+
+        </div>
     </div>
   </div>
-</div>
+</mat-card>
 

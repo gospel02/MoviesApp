@@ -1,34 +1,28 @@
-<div class="container">
+<mat-card class="container">
   <div class='header'>
-    <div>
-      <form>
-        <div class='search'>
-          <div>
-            <input type="text" class="searchInput" placeholder="Search Movies"
-              name="movie"
-              [(ngModel)]="movie">
-          </div>
-          <div>
-            <button mat-raised-button class="searchButton" (click)="searchMovies()">Search</button>
-          </div>
+    <form>
+      <div class='search'>
+        <div>
+          <input type="text" class="searchInput" placeholder="Search Movies"
+            name="movie"
+            [(ngModel)]="movie">
         </div>
-      </form>
-    </div>
+        <div>
+          <button mat-raised-button class="searchButton" (click)="searchMovies()">Search</button>
+        </div>
+      </div>
+    </form>
   </div>
 
   <div class='movieCategory' >
     <div *ngFor="let movie of search_result; let i = index">
       <div  *ngIf="i < 10">
         <div>
-
-          <div>
-            <a routerLink="/moviedetail/{{ movie.id }}" href="#" class="movieDetail"><img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" 
-                  alt="{{ movie.original_title }}" 
-                  style="height: 460px"></a>
-            <p class='movieInfo'>{{ movie.original_title }}</p>      
-            <p class='movieInfo'>{{ movie.release_date }}</p>
-            
-          </div>
+          <a routerLink="/moviedetail/{{ movie.id }}" href="#" class="movieDetail"><img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" 
+                alt="{{ movie.original_title }}" 
+                style="height: 460px"></a>
+          <mat-card-subtitle class='movieInfo'>{{ movie.original_title }}</mat-card-subtitle>      
+          <mat-card-subtitle class='movieInfo'>{{ movie.release_date }}</mat-card-subtitle>
         </div>
       </div>
     </div>
@@ -36,25 +30,20 @@
 
   <hr>
 
-  <div>
-    <div class='categoryHeader'>
-      <h1 class='categoryTitle'> Movies Coming Soon</h1>
-    </div>
+  <div class='categoryHeader'>
+    <h1 class='categoryTitle'> Movies Coming Soon</h1>
   </div>
-
+  
   <div class='movieCategory'>
     <div *ngFor="let upcoming of upcoming_movies; let i = index">
       <div *ngIf="i < 10">
         <div>
-          <div>
-            <a routerLink="/moviedetail/{{ upcoming.id }}" href="#" class="movieDetail"><img src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}"
-                 alt="{{ upcoming.original_title }}" 
-                 style="height: 460px">
-                </a>
-            <p class='movieInfo'>{{ upcoming.original_title }}</p>    
-            <p class='movieInfo'>{{ upcoming.release_date }}</p>
-            
-          </div>
+          <a routerLink="/moviedetail/{{ upcoming.id }}" href="#" class="movieDetail"><img src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}"
+                alt="{{ upcoming.original_title }}" 
+                style="height: 460px">
+              </a>
+          <mat-card-subtitle class='movieInfo'>{{ upcoming.original_title }}</mat-card-subtitle>    
+          <mat-card-subtitle class='movieInfo'>{{ upcoming.release_date }}</mat-card-subtitle>
         </div>
       </div>
     </div>
@@ -62,28 +51,23 @@
   
   <hr>
 
-  <div>
-    <div class='categoryHeader' >
-      <h1 class='categoryTitle'>Popular Movies</h1>
-    </div>
+  
+  <div class='categoryHeader' >
+    <h1 class='categoryTitle'>Popular Movies</h1>
   </div>
-
+  
   <div class='movieCategory'>
     <div *ngFor="let popular of popular_movies; let i = index">
       <div *ngIf="i < 10">
         <div>
-          <div>
-            <a routerLink="/moviedetail/{{ popular.id }}" href="#" class="movieDetail"><img src="https://image.tmdb.org/t/p/w500/{{ popular.poster_path }}" 
-                 alt="{{ popular.original_title }}" 
-                 style="height: 460px"></a>
-            <p class='movieInfo'>{{ popular.original_title }}</p>
-            <p class='movieInfo'>{{ popular.release_date }}</p>
-            
-          </div>
+          <a routerLink="/moviedetail/{{ popular.id }}" href="#" class="movieDetail"><img src="https://image.tmdb.org/t/p/w500/{{ popular.poster_path }}" 
+                alt="{{ popular.original_title }}" 
+                style="height: 460px"></a>
+          <mat-card-subtitle class='movieInfo'>{{ popular.original_title }}</mat-card-subtitle>
+          <mat-card-subtitle class='movieInfo'>{{ popular.release_date }}</mat-card-subtitle>
         </div>
       </div>
     </div>
   </div>
-
-</div>
+</mat-card>
 
