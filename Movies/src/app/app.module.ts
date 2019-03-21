@@ -29,12 +29,14 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { MoviedetailComponent } from './moviedetail/moviedetail.component';
 import { MovieService } from './movie.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MoviesOfUserComponent } from './movies-of-user/movies-of-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    MoviedetailComponent
+    MoviedetailComponent,
+    MoviesOfUserComponent
   ],
   imports: [
     BrowserModule,
