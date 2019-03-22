@@ -31,6 +31,7 @@ import { MovieService } from './movie.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesOfUserComponent } from './movies-of-user/movies-of-user.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { MoviesOfUserComponent } from './movies-of-user/movies-of-user.component
     MatFormFieldModule,
     FormsModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    
    
   ],
   providers: [MovieService],
