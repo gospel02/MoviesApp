@@ -11,6 +11,8 @@ export class HomepageComponent implements OnInit {
   popular_movies: any;
   upcoming_movies: any;
   search_result: any;
+  nowInTheaters_movies: any;
+  popularKids_movies: any;
   movie: any;
 
   constructor(public movieService: MovieService) {
@@ -27,10 +29,20 @@ export class HomepageComponent implements OnInit {
        console.log(this.upcoming_movies);
     });
 
+    this.movieService.getMoviesNowInTheaters().subscribe(data => {
+      this.nowInTheaters_movies = data['results'];
+       console.log(this.nowInTheaters_movies);
+    });
+
   
     this.movieService.getPopularMovies().subscribe(data => {
       this.popular_movies = data['results'];
        console.log(this.popular_movies);
+    });
+
+    this.movieService.getPopularKidsMovies().subscribe(data => {
+      this.popularKids_movies = data['results'];
+       console.log(this.popularKids_movies);
     });
 
   }

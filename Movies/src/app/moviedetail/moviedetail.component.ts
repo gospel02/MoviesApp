@@ -6,6 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../auth/user';
 import { Observable } from "rxjs";
 import { AngularFirestore } from "@angular/fire/firestore";
+import { UserMoviesService } from "../movies-of-user/user-movies.service"
 
 
 @Component({
@@ -16,14 +17,21 @@ import { AngularFirestore } from "@angular/fire/firestore";
 export class MoviedetailComponent implements OnInit {
   
   movie: any;
+  completedMoviesRef;
+  interestedMoviesRef;
+  completed: boolean;
+  interested: boolean;
   user;
   userCollectionRef;
   user$: Observable<User[]>;
 
   constructor(private router: ActivatedRoute,
+     private route: Router,
+    
      private movieService: MovieService,
      private afs: AngularFirestore,
-     private afAuth: AngularFireAuth
+     private afAuth: AngularFireAuth,
+     private userMoviesService: UserMoviesService
      ) {
       this.userCollectionRef = this.afs.collection<User>('users');
       this.user$ = this.userCollectionRef.valueChanges();
@@ -36,6 +44,12 @@ export class MoviedetailComponent implements OnInit {
       }
 
   ngOnInit() {
+    if (this.user == undefined) {
+      this.route.navigate(['/homepage']);
+    }
+     (this.userMoviesService.user = this.user);
+     (this.completedMoviesRef = this.afs.collection('users').doc(this.user.uid).collection('completedMovies'));
+     (this.interestedMoviesRef = this.afs.collection('users').doc(this.user.uid).collection('interestedMovies'));
     this.router.params.subscribe((params) => {
       const id = params['movieID'];
       this.movieService.getMovie(id).subscribe(data => {
