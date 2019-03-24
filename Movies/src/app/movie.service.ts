@@ -19,15 +19,23 @@ export class MovieService {
   }
 
   getTopRatedMovies() {
-    return this._http.get(this.url + 'discover/movie?sort_by=vote_average.desc' + '&api_key=' + this.apikey + '&language=' + this.language + '&region=' + this.region);
+    return this._http.get(this.url + 'discover/movie?primary_release_date.gte=2019-01-01&primary_release_date.lte=2019-04-01&sort_by=vote_average.desc' + '&api_key=' + this.apikey + '&language=' + this.language + '&region=' + this.region);
   }
 
   getUpcomingMovies() {
     return this._http.get(this.url + 'discover/movie?primary_release_date.gte=2019-03-30&primary_release_date.lte=2019-05-15' + '&api_key=' + this.apikey + '&language=' + this.language + '&region=' + this.region);
   }
 
+  getMoviesNowInTheaters() {
+    return this._http.get(this.url + 'discover/movie?certification_country=US&primary_release_date.gte=2019-03-01&primary_release_date.lte=2019-03-24' + '&api_key=' + this.apikey + '&language=' + this.language);
+  }
+
   getPopularMovies() {
     return this._http.get(this.url + 'discover/movie?sort_by=popularity.desc' + '&api_key=' + this.apikey + '&language=' + this.language + '&region=' + this.region);
+  }
+
+  getPopularKidsMovies() {
+    return this._http.get(this.url + 'discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc' + '&api_key=' + this.apikey + '&language=' + this.language + '&region=' + this.region);
   }
 
   getMovie(id: number) {
