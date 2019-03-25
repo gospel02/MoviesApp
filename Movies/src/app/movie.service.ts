@@ -6,7 +6,7 @@ export class MovieService {
 
   private url = 'https://api.themoviedb.org/3/';
   private apikey = 'c8deafc3aa91fe5f48fab331e2b8467d';
-  private language = 'en-US';
+  private language = 'en';
   private region = 'US';
   private moviestring: string;
   private id: number;
@@ -23,11 +23,11 @@ export class MovieService {
   }
 
   getUpcomingMovies() {
-    return this._http.get(this.url + 'discover/movie?primary_release_date.gte=2019-03-30&primary_release_date.lte=2019-05-15' + '&api_key=' + this.apikey + '&language=' + this.language + '&region=' + this.region);
+    return this._http.get(this.url + 'discover/movie?primary_release_date.gte=2019-04-13&primary_release_date.lte=2019-04-30' + '&api_key=' + this.apikey + '&language=' + this.language + '&region=' + this.region);
   }
 
   getMoviesNowInTheaters() {
-    return this._http.get(this.url + 'discover/movie?certification_country=US&primary_release_date.gte=2019-03-01&primary_release_date.lte=2019-03-24' + '&api_key=' + this.apikey + '&language=' + this.language);
+    return this._http.get(this.url + 'discover/movie?certification_country=US&primary_release_date.gte=2019-03-01&primary_release_date.lte=2019-03-31' + '&api_key=' + this.apikey + '&language=' + this.language);
   }
 
   getPopularMovies() {
@@ -35,7 +35,7 @@ export class MovieService {
   }
 
   getPopularKidsMovies() {
-    return this._http.get(this.url + 'discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc' + '&api_key=' + this.apikey + '&language=' + this.language + '&region=' + this.region);
+    return this._http.get(this.url + 'discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc' + '&api_key=' + this.apikey + '&spoken_languages=' + this.language + '&region=' + this.region);
   }
 
   getMovie(id: number) {
