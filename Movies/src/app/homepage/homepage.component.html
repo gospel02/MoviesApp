@@ -1,5 +1,14 @@
+
 <mat-card class="container">
+    <div class='navBar'>
+        <button mat-raised-button class="navButton"><a href='#moviesSearch'>Search</a></button>
+        <button mat-raised-button class="navButton"><a href='#moviesNowPlaying'>Now Playing</a></button>
+        <button mat-raised-button class="navButton"><a href='#moviesComingSoon'>Coming Soon</a></button>
+        <button mat-raised-button class="navButton"><a href='#moviesPopular'>Popular Movies</a></button>
+        <button mat-raised-button class="navButton"><a href='#moviesPopularKids'>Popular Kids Movies</a></button>
+      </div>
   <div class='header'>
+      <a name='moviesSearch'></a>
     <form>
       <div class='search'>
         <div>
@@ -31,6 +40,7 @@
   <hr>
 
   <div class='categoryHeader'>
+    <a name='moviesNowPlaying'></a>
     <h1 class='categoryTitle'> Now Playing</h1>
   </div>
   
@@ -52,7 +62,8 @@
   <hr>
 
   <div class='categoryHeader'>
-    <h1 class='categoryTitle'> Movies Coming Soon</h1>
+    <a name='moviesComingSoon'></a>
+    <h1 class='categoryTitle'>Coming Soon</h1>
   </div>
   
   <div class='movieCategory'>
@@ -72,7 +83,8 @@
   
   <hr>
 
-  <div class='categoryHeader' >
+  <div class='categoryHeader'>
+      <a name='moviesPopular'></a>
     <h1 class='categoryTitle'>Popular Movies</h1>
   </div>
   
@@ -92,7 +104,8 @@
 
   <hr>
 
-  <div class='categoryHeader' >
+  <div class='categoryHeader'>
+      <a name='moviesPopularKids'></a>
     <h1 class='categoryTitle'>Popular Kids Movies</h1>
   </div>
   
