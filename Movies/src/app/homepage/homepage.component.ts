@@ -47,7 +47,6 @@ export class HomepageComponent implements OnInit {
 
   }
 
-  
   searchMovies() {
     this.movieService.searchMovie(this.movie).subscribe(data => {
       this.search_result = data['results'];
