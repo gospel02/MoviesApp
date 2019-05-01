@@ -69,7 +69,7 @@ export class SignInService {
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/movies-of-user']);
     });
   }
 }
