@@ -23,11 +23,11 @@ export class MovieService {
   }
 
   getUpcomingMovies() {
-    return this._http.get(this.url + 'discover/movie?primary_release_date.gte=2019-04-13&primary_release_date.lte=2019-04-30' + '&api_key=' + this.apikey + '&language=' + this.language + '&region=' + this.region);
+    return this._http.get(this.url + 'discover/movie?primary_release_date.gte=2019-05-11&primary_release_date.lte=2019-05-30' + '&api_key=' + this.apikey + '&language=' + this.language + '&region=' + this.region);
   }
 
   getMoviesNowInTheaters() {
-    return this._http.get(this.url + 'discover/movie?certification_country=US&primary_release_date.gte=2019-03-01&primary_release_date.lte=2019-03-31' + '&api_key=' + this.apikey + '&language=' + this.language);
+    return this._http.get(this.url + 'discover/movie?certification_country=US&primary_release_date.gte=2019-04-20&primary_release_date.lte=2019-05-10' + '&api_key=' + this.apikey + '&language=' + this.language);
   }
 
   getPopularMovies() {
