@@ -7,13 +7,13 @@ import * as firebase from 'firebase';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { 
+import {
   MatSelectModule,
   MatOptionModule,
   MatButtonModule,
-  MatInputModule, 
+  MatInputModule,
   MatCheckboxModule,
-  MatToolbarModule 
+  MatToolbarModule
  } from '@angular/material';
 
 import {MatCardModule} from '@angular/material/card';
@@ -30,6 +30,7 @@ import { MoviedetailComponent } from './moviedetail/moviedetail.component';
 import { MovieService } from './movie.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesOfUserComponent } from './movies-of-user/movies-of-user.component';
+import {AuthGuard} from './auth/auth.guard';
 
 
 @NgModule({
@@ -50,17 +51,17 @@ import { MoviesOfUserComponent } from './movies-of-user/movies-of-user.component
     MatSelectModule,
     MatOptionModule,
     MatButtonModule,
-    MatInputModule, 
+    MatInputModule,
     MatCheckboxModule,
     MatToolbarModule,
     MatFormFieldModule,
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
-    
-   
+
+
   ],
-  providers: [MovieService],
+  providers: [MovieService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

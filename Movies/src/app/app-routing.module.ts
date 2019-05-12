@@ -4,37 +4,34 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { MoviedetailComponent } from './moviedetail/moviedetail.component';
 import { MoviesOfUserComponent } from './movies-of-user/movies-of-user.component';
 import { AuthGuard } from './auth/auth.guard';
-
-
 const routes: Routes = [
-  { 
-    path: '', 
+  {
+    path: '',
     component: HomepageComponent,
   },
-  { 
-    path: 'moviedetail/:movieID', 
+  {
+    path: 'moviedetail/:movieID',
     component: MoviedetailComponent,
     canActivate: [AuthGuard]
   },
-  { 
-    path: 'homepage', 
+  {
+    path: 'homepage',
     component: HomepageComponent,
   },
-  { 
-    path: 'movies-of-user', 
+  {
+    path: 'movies-of-user',
     component: MoviesOfUserComponent
   },
-  { 
-    path: '', 
-    redirectTo: 'homepage', 
-    pathMatch: 'full' 
+  {
+    path: '',
+    redirectTo: 'homepage',
+    pathMatch: 'full'
   },
-  { path: '**', 
-    redirectTo: 'homepage', 
-    pathMatch: 'full' 
+  { path: '**',
+    redirectTo: 'homepage',
+    pathMatch: 'full'
   }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

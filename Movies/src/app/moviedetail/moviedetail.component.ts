@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
 import { MovieService } from '../movie.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../auth/user';
-import { Observable } from "rxjs";
-import { AngularFirestore } from "@angular/fire/firestore";
-import { UserMoviesService } from "../movies-of-user/user-movies.service"
-
-
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { UserMoviesService } from '../movies-of-user/user-movies.service'
 @Component({
   selector: 'app-moviedetail',
   templateUrl: './moviedetail.component.html',
   styleUrls: ['./moviedetail.component.sass']
 })
 export class MoviedetailComponent implements OnInit {
-  
+
   movie: any;
   completedMoviesRef;
   interestedMoviesRef;
@@ -27,7 +24,6 @@ export class MoviedetailComponent implements OnInit {
 
   constructor(private router: ActivatedRoute,
      private route: Router,
-    
      private movieService: MovieService,
      private afs: AngularFirestore,
      private afAuth: AngularFireAuth,
@@ -35,14 +31,13 @@ export class MoviedetailComponent implements OnInit {
      ) {
       this.userCollectionRef = this.afs.collection<User>('users');
       this.user$ = this.userCollectionRef.valueChanges();
-  
+
       this.afAuth.authState.subscribe(user => {
         this.user = user;
         console.log(user)
       });
 
       }
-
   ngOnInit() {
     if (this.user == undefined) {
       this.route.navigate(['/homepage']);
@@ -58,5 +53,4 @@ export class MoviedetailComponent implements OnInit {
       });
     });
   }
-
 }

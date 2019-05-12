@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
-
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -14,16 +13,13 @@ export class HomepageComponent implements OnInit {
   nowInTheaters_movies: any;
   popularKids_movies: any;
   movie: any;
-
   constructor(public movieService: MovieService) {
-
-    
     this.movieService.getTopRatedMovies().subscribe(data => {
       this.topRated_movies = data['results'];
        console.log(this.topRated_movies);
     });
 
-   
+
     this.movieService.getUpcomingMovies().subscribe(data => {
       this.upcoming_movies = data['results'];
        console.log(this.upcoming_movies);
@@ -34,7 +30,7 @@ export class HomepageComponent implements OnInit {
        console.log(this.nowInTheaters_movies);
     });
 
-  
+
     this.movieService.getPopularMovies().subscribe(data => {
       this.popular_movies = data['results'];
        console.log(this.popular_movies);
@@ -46,15 +42,12 @@ export class HomepageComponent implements OnInit {
     });
 
   }
-
   searchMovies() {
     this.movieService.searchMovie(this.movie).subscribe(data => {
       this.search_result = data['results'];
        console.log(this.search_result);
     });
   }
-
   ngOnInit() {
   }
-
 }
