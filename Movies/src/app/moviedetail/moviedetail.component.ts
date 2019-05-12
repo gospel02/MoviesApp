@@ -16,7 +16,7 @@ export class MoviedetailComponent implements OnInit {
   movie: any;
   completedMoviesRef;
   interestedMoviesRef;
-  completed: boolean;
+  watched: boolean;
   interested: boolean;
   user;
   userCollectionRef;
@@ -53,4 +53,6 @@ export class MoviedetailComponent implements OnInit {
       });
     });
   }
+
+
 }

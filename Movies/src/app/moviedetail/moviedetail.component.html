@@ -2,7 +2,7 @@
   <div *ngIf="movie">
     <div class='movieCard'>
       <div>
-        <img class='image' src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" 
+        <img class='image' src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
         alt="{{ movie.title }}">
       </div>
       <div class='movieInfo'>
@@ -26,7 +26,7 @@
               IMDB Link
             </a>
           </li>
-          <mat-checkbox class='checkbox' [checked]="Watched">Watched</mat-checkbox>
+          <mat-checkbox class='checkbox' [checked]="watched">Watched</mat-checkbox>
           <mat-checkbox class='checkbox' [checked]="interested">Interested</mat-checkbox>
         </ul>
       </div>
