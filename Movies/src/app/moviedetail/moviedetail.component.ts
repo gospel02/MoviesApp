@@ -30,7 +30,7 @@ export class MoviedetailComponent implements OnInit {
      private userMoviesService: UserMoviesService
      ) {
       this.userCollectionRef = this.afs.collection<User>('users');
-      this.user$ = this.userCollectionRef.valueChanges();
+      this.user$ = this.userCollectionRef.valueChange();
 
       this.afAuth.authState.subscribe(user => {
         this.user = user;
@@ -54,5 +54,12 @@ export class MoviedetailComponent implements OnInit {
     });
   }
 
+watchedThis(){
+
+}
+
+interestedThis(){
+
+}
 
 }
