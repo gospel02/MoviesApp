@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../auth/user';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { UserMoviesService } from '../movies-of-user/user-movies.service'
+import { UserMoviesService } from '../movies-of-user/user-movies.service';
 @Component({
   selector: 'app-moviedetail',
   templateUrl: './moviedetail.component.html',
@@ -30,16 +30,16 @@ export class MoviedetailComponent implements OnInit {
      private userMoviesService: UserMoviesService
      ) {
       this.userCollectionRef = this.afs.collection<User>('users');
-      this.user$ = this.userCollectionRef.valueChange();
+      this.user$ = this.userCollectionRef.valueChanges();
 
       this.afAuth.authState.subscribe(user => {
         this.user = user;
-        console.log(user)
+        console.log(user);
       });
 
       }
   ngOnInit() {
-    if (this.user == undefined) {
+    if (this.user === undefined) {
       this.route.navigate(['/homepage']);
     }
      (this.userMoviesService.user = this.user);
@@ -54,12 +54,10 @@ export class MoviedetailComponent implements OnInit {
     });
   }
 
-watchedThis(){
+watchedThis() {
 
 }
-
-interestedThis(){
+interestedThis() {
 
 }
-
 }
