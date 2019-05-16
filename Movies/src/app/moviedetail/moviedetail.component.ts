@@ -29,8 +29,8 @@ export class MoviedetailComponent implements OnInit {
      private afAuth: AngularFireAuth,
      private userMoviesService: UserMoviesService
      ) {
-      this.userCollectionRef = this.afs.collection<User>('users');
-      this.user$ = this.userCollectionRef.valueChange();
+      //this.userCollectionRef = this.afs.collection<User>('users');
+      //this.user$ = this.userCollectionRef.valueChange();
 
       this.afAuth.authState.subscribe(user => {
         this.user = user;

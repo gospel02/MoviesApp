@@ -61,7 +61,7 @@ import {AuthGuard} from './auth/auth.guard';
 
 
   ],
-  providers: [MovieService,AuthGuard],
+  providers: [MovieService, HomepageComponent, MoviesOfUserComponent, AuthGuard, MoviedetailComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
