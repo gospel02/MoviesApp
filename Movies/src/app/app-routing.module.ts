@@ -20,7 +20,8 @@ const routes: Routes = [
   },
   {
     path: 'movies-of-user',
-    component: MoviesOfUserComponent
+    component: MoviesOfUserComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',
