@@ -26,8 +26,8 @@
               IMDB Link
             </a>
           </li>
-          <mat-checkbox class='checkbox' [checked]="watched">Watched</mat-checkbox>
-          <mat-checkbox class='checkbox' [checked]="interested">Interested</mat-checkbox>
+          <mat-checkbox class='checkbox' [(ngModel)]="watched" (change)="watchedThis(this.movie.id)">Watched</mat-checkbox>
+          <mat-checkbox class='checkbox' [(ngModel)]="interested" (change)="interestedThis(this.movie.id)">Interested</mat-checkbox>
         </ul>
       </div>
     </div>

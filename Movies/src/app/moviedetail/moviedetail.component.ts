@@ -49,15 +49,21 @@ export class MoviedetailComponent implements OnInit {
       const id = params['movieID'];
       this.movieService.getMovie(id).subscribe(data => {
         this.movie = data;
-         console.log(data);
+
       });
     });
   }
 
-watchedThis() {
+watchedThis(id) {
+if (this.watched !== false) {
+  console.log(id);
+} else {
 
 }
-interestedThis() {
 
+  console.log(this.watched);
+}
+interestedThis(id) {
+  console.log(id);
 }
 }
