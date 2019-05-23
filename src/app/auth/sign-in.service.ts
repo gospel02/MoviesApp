@@ -8,6 +8,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { User } from './user';
+import { Moviedetail } from '../moviedetail'
 
 
 
@@ -17,6 +18,8 @@ import { User } from './user';
 export class SignInService {
 
   user: Observable<User>;
+  public completed: Moviedetail[] = [];
+  public interested: Moviedetail[] = [];
 
   public data: { uid: any; photoURL: any | string; displayName: any; email: any };
 
@@ -61,6 +64,7 @@ export class SignInService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL
+
     };
     return userRef.set(this.data, { merge: true })
 
