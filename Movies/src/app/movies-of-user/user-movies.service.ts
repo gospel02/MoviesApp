@@ -14,6 +14,8 @@ export class UserMoviesService {
   completedMovies: DocumentData[];
   interestedMovies: DocumentData[];
   userCollectionRef;
+  completedMoviesRef;
+  interestedMoviesRef;
 
   constructor(private afs: AngularFirestore,
     private afAuth: AngularFireAuth
@@ -21,6 +23,8 @@ export class UserMoviesService {
       this.userCollectionRef = this.afs.collection<User>('users');
       this.afAuth.authState.subscribe(user => {
         this.user = user;
+        (this.completedMoviesRef = this.afs.collection('users').doc(this.user.uid).collection('completedMovies'));
+        (this.interestedMoviesRef = this.afs.collection('users').doc(this.user.uid).collection('interestedMovies'));
         this.afs.collection('users').doc(this.user.uid).collection('completedMovies').valueChanges()
           .subscribe(data => {
             this.completedMovies = data;
@@ -31,18 +35,19 @@ export class UserMoviesService {
           });
       });
      }
-
-     addWatched() {
-
+     addWatched(id) {
+    this.completedMoviesRef.add(id);
      }
-     addInterested() {
-
+     addInterested(id) {
+    this.interestedMoviesRef.add(id);
      }
-     removeWatched() {
-
+     removeWatched(id) {
+    const docId = id.toString();
+    return this.completedMoviesRef.doc(docId).delete();
      }
-     removeInterested() {
-
+     removeInterested(id) {
+       const docId = id.toString();
+       return this.completedMoviesRef.doc(docId).delete();
      }
 
 

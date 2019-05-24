@@ -14,8 +14,6 @@ import { UserMoviesService } from '../movies-of-user/user-movies.service';
 export class MoviedetailComponent implements OnInit {
 
   movie: any;
-  completedMoviesRef;
-  interestedMoviesRef;
   watched: boolean;
   interested: boolean;
   user;
@@ -43,8 +41,6 @@ export class MoviedetailComponent implements OnInit {
       this.route.navigate(['/homepage']);
     }
      (this.userMoviesService.user = this.user);
-     (this.completedMoviesRef = this.afs.collection('users').doc(this.user.uid).collection('completedMovies'));
-     (this.interestedMoviesRef = this.afs.collection('users').doc(this.user.uid).collection('interestedMovies'));
     this.router.params.subscribe((params) => {
       const id = params['movieID'];
       this.movieService.getMovie(id).subscribe(data => {
@@ -55,13 +51,16 @@ export class MoviedetailComponent implements OnInit {
   }
 
 watchedThis(id) {
-if (this.watched !== false) {
-  console.log(id);
-} else {
 
-}
-
-  console.log(this.watched);
+    this.watched ? this.userMoviesService.removeWatched(id) : this.userMoviesService.addWatched(id);
+// if (this.watched) {
+//   this.userMoviesService.removeWatched(id);
+//   console.log(id);
+// } else {
+//   this.userMoviesService.addWatched(id);
+// }
+//
+//   console.log(this.watched);
 }
 interestedThis(id) {
   console.log(id);

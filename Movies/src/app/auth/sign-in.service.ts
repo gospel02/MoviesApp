@@ -31,12 +31,12 @@ export class SignInService {
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
-          return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
-          return of(null)
+          return of(null);
         }
       })
-    )
+    );
   }
 
   googleLogin() {
@@ -47,8 +47,8 @@ export class SignInService {
   oAuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential) => {
-        return this.updateUserData(credential.user)
-      })
+        return this.updateUserData(credential.user);
+      });
   }
 
 
@@ -62,7 +62,7 @@ export class SignInService {
       displayName: user.displayName,
       photoURL: user.photoURL
     };
-    return userRef.set(this.data, { merge: true })
+    return userRef.set(this.data, { merge: true });
 
   }
 
