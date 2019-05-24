@@ -18,14 +18,19 @@
               {{ genre.name }}
             </span>
           </li>
+          <li><strong>Runtime: </strong> {{ movie.runtime }} minutes</li>
+          <li><strong>Average Rating: </strong> {{ movie.vote_average }} out of 10</li>
           <li>
             <a href="{{ movie.homepage }}" target="_blank">
               Movie Homepage
             </a>
+          </li>
+          <li>
             <a href="https://www.imdb.com/title/{{ movie.imdb_id }}" target="_blank">
               IMDB Link
             </a>
           </li>
+          
           <mat-checkbox class='checkbox' [checked]="watched">Watched</mat-checkbox>
           <mat-checkbox class='checkbox' [checked]="interested">Interested</mat-checkbox>
         </ul>
