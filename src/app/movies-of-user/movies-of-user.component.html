@@ -2,13 +2,13 @@
   <mat-card-title>{{user?.displayName}}</mat-card-title>
     <mat-card-header>Watched Movies:</mat-card-header>
       <ul class="watched" *ngFor="let wmovies of watchedMovies">
-        <li (click)="routeToMovies(wmovies)">
+        <li (click)="routeToMovies(wmovies.id)">
           {{ wmovies.name }}
         </li>
       </ul>
     <mat-card-header>Interested Movies:</mat-card-header>
       <ul class="interested" *ngFor="let imovies of interestedMovies">
-        <li (click)="routeToMovies(imovies)">
+        <li (click)="routeToMovies(imovies.id)">
           {{ imovies.name }}
         </li>
       </ul>

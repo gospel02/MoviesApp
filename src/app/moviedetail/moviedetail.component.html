@@ -18,16 +18,20 @@
               {{ genre.name }}
             </span>
           </li>
+          <li><strong>Runtime: </strong> {{ movie.runtime }} minutes</li>
+          <li><strong>Average Rating: </strong> {{ movie.vote_average }} out of 10</li>
           <li>
             <a href="{{ movie.homepage }}" target="_blank">
               Movie Homepage
             </a>
+          </li>
+          <li>
             <a href="https://www.imdb.com/title/{{ movie.imdb_id }}" target="_blank">
               IMDB Link
             </a>
           </li>
-          <mat-checkbox class='checkbox' [(ngModel)]="watched" (change)="watchedThis(this.movie.id)">Watched</mat-checkbox>
-          <mat-checkbox class='checkbox' [(ngModel)]="interested" (change)="interestedThis(this.movie.id)">Interested</mat-checkbox>
+          <mat-checkbox class='checkbox' [(ngModel)]="watched" (change)="watchedThis(this.movie.id,this.movie.title)">Watched</mat-checkbox>
+          <mat-checkbox class='checkbox' [(ngModel)]="interested" (change)="interestedThis(this.movie.id,this.movie.title)">Interested</mat-checkbox>
         </ul>
       </div>
     </div>

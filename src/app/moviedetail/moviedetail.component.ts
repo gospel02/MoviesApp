@@ -32,7 +32,6 @@ export class MoviedetailComponent implements OnInit {
 
       this.afAuth.authState.subscribe(user => {
         this.user = user;
-        console.log(user);
       });
 
       }
@@ -50,19 +49,18 @@ export class MoviedetailComponent implements OnInit {
     });
   }
 
-watchedThis(id) {
-
-    this.watched ? this.userMoviesService.removeWatched(id) : this.userMoviesService.addWatched(id);
-// if (this.watched) {
-//   this.userMoviesService.removeWatched(id);
-//   console.log(id);
-// } else {
-//   this.userMoviesService.addWatched(id);
-// }
-//
-//   console.log(this.watched);
+watchedThis(id, name) {
+  if (this.watched) {
+    this.userMoviesService.addWatched(id, name);
+  } else {
+    this.userMoviesService.removeWatched(id);
+  }
 }
-interestedThis(id) {
-  console.log(id);
+interestedThis(id, name) {
+  if (this.interested) {
+    this.userMoviesService.addInterested(id, name);
+  } else {
+    this.userMoviesService.removeInterested(id);
+  }
 }
 }

@@ -6,6 +6,6 @@ import { SignInService } from './auth/sign-in.service';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  constructor(public auth: SignInService){}
+  constructor(public auth: SignInService) {}
   title = 'Movies';
 }

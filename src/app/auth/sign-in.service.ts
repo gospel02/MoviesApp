@@ -8,7 +8,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { User } from './user';
-import { Moviedetail } from '../moviedetail'
+import { Moviedetail } from '../moviedetail';
 
 
 

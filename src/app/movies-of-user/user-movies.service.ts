@@ -11,8 +11,8 @@ import {AngularFireAuth} from '@angular/fire/auth';
 export class UserMoviesService {
 
   public user;
-  completedMovies: DocumentData[];
-  interestedMovies: DocumentData[];
+  public completedMovies: DocumentData[];
+  public interestedMovies: DocumentData[];
   userCollectionRef;
   completedMoviesRef;
   interestedMoviesRef;
@@ -25,29 +25,51 @@ export class UserMoviesService {
         this.user = user;
         (this.completedMoviesRef = this.afs.collection('users').doc(this.user.uid).collection('completedMovies'));
         (this.interestedMoviesRef = this.afs.collection('users').doc(this.user.uid).collection('interestedMovies'));
-        this.afs.collection('users').doc(this.user.uid).collection('completedMovies').valueChanges()
-          .subscribe(data => {
-            this.completedMovies = data;
-          });
-        this.afs.collection('users').doc(this.user.uid).collection('interestedMovies').valueChanges()
-          .subscribe(data => {
-            this.interestedMovies = data;
-          });
       });
      }
-     addWatched(id) {
-    this.completedMoviesRef.add(id);
+     addWatched(id, name) {
+    const docId = id.toString();
+    this.completedMoviesRef.doc(docId).set({
+         id: id,
+         name: name
+       }, {merge: true})
+         .then(function() {
+           console.log('Document successfully written!');
+         })
+         .catch(function(error) {
+           console.error('Error writing document: ', error);
+         });
      }
-     addInterested(id) {
-    this.interestedMoviesRef.add(id);
+     addInterested(id, name) {
+       const docId = id.toString();
+       this.interestedMoviesRef.doc(docId).set({
+         id: id,
+         name: name
+       }, {merge: true})
+         .then(function() {
+           console.log('Document successfully written!');
+         })
+         .catch(function(error) {
+           console.error('Error writing document: ', error);
+         });
      }
      removeWatched(id) {
-    const docId = id.toString();
-    return this.completedMoviesRef.doc(docId).delete();
+       const docId = id.toString();
+       return this.completedMoviesRef.doc(docId).delete().then(function() {
+         console.log('Document successfully removed!');
+       })
+         .catch(function(error) {
+           console.error('Error removing document: ', error);
+         });
      }
      removeInterested(id) {
        const docId = id.toString();
-       return this.completedMoviesRef.doc(docId).delete();
+       return this.interestedMoviesRef.doc(docId).delete().then(function() {
+         console.log('Document successfully removed!');
+       })
+         .catch(function(error) {
+           console.error('Error removing document: ', error);
+         });
      }
 
 
